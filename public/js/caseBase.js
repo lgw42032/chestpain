@@ -150,6 +150,8 @@ define(function(require, exports, module) {
             stationCode:Station_code_c,
             personType:3
         });
+
+        
         func.addChoose(Drivers.data);
         func.render($('#doctor'),$('select[name=Driver_c]'),Drivers);
         var DPmhq = await promise.getDPmhq(url,{});
