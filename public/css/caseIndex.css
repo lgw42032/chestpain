@@ -1,0 +1,163 @@
+.am-header .am-header-title {
+  font-size: 0.175rem;
+}
+.am-table {
+  margin-bottom: 0rem;
+}
+.am-table > thead > tr > th {
+  padding: .14rem;
+}
+.am-table > tbody > tr > td {
+  padding: .14rem;
+}
+.am-table .infoDetail > td {
+  padding: 0.175rem;
+}
+.am-table .infoDetail table td {
+  text-align: left;
+}
+.am-pagination {
+  margin: 0.3rem 0;
+}
+.pagination {
+  padding: .1rem 0;
+}
+.am-parent {
+  background-color: #fff;
+}
+.am-form-field {
+  padding: .5em;
+  font-size: 0.275rem;
+  line-height: 1.2;
+}
+.datetimepicker table td {
+  width: 0.0225rem;
+  height: 0.085rem;
+  cursor: pointer;
+  font-size: 0.175rem;
+  color: #555;
+  background: #fff;
+}
+.am-menu-dropdown1 .am-menu-nav {
+  z-index: 1;
+}
+.query-box {
+  padding: 0.1rem 0.175rem;
+}
+.query-box input {
+  line-height: 49px;
+}
+.query-box label {
+  margin: 0;
+  width: 25%;
+}
+.query-box .am-btn {
+  font-size: 0.275rem;
+}
+.query-box .am-selected-list {
+  font-size: .3rem;
+}
+.query-box .am-selected-list li {
+  padding: 0 0.125rem;
+}
+.am-input-group-label {
+  height: 0.095rem;
+  font-size: 0.275rem;
+  line-height: 0.095rem;
+}
+.content tbody {
+  overflow: auto;
+}
+.btn {
+  text-align: center;
+}
+.list .table-body {
+  overflow: auto;
+}
+.am-input-group .am-form-field {
+  height: 0.475rem;
+}
+label {
+  color: #0f8fcb;
+}
+audio {
+  vertical-align: middle;
+}
+.am-header-default {
+  background: #0f8fcb;
+}
+.am-icon-bars:before,
+.am-icon-navicon:before,
+.am-icon-reorder:before {
+  content: "";
+  width: 0.21875rem;
+  height: 0.21875rem;
+  background: url('../images/query.png');
+  background-size: contain;
+}
+.am-icon-home:before {
+  content: "";
+  width: 0.13125rem;
+  height: 0.21875rem;
+  background: url('../images/leftArr.png');
+  background-size: contain;
+}
+.am-btn-primary {
+  color: #fff;
+  background-color: #0f8fcb;
+  border-color: #0f8fcb;
+}
+.am-header {
+  padding: 0;
+}
+.mask {
+  background-color: rgba(222, 222, 222, 0.5);
+}
+.case-detail {
+  color: blue;
+}
+.query-year {
+  display: none;
+}
+.query-month {
+  display: none;
+}
+.am-menu-dropdown1 .am-menu-toggle {
+  right: 0.0625rem;
+  top: -0.575rem;
+}
+.am-menu-dropdown1 .am-menu-toggle {
+  width: 0.55rem;
+  height: 0.55rem;
+  line-height: 0.55rem;
+}
+.am-header .am-header-title {
+  font-size: 0.275rem;
+  margin: 0;
+}
+.am-header .am-header-title img {
+  margin-top: 0;
+  vertical-align: middle;
+  width: 0.13125rem;
+  height: 0.21875rem;
+}
+.am-header {
+  padding: 0 .2rem;
+}
+.add-case {
+  text-align: center;
+  padding: 10px 0;
+}
+.add-case a {
+  display: inline-block;
+  padding: 10px;
+  background-color: #0f8fcb;
+  color: #fff;
+  border-radius: 8px;
+}
+.am-modal-btn {
+  font-size: 0.175rem;
+}
+.am-modal-hd {
+  font-size: 0.175rem;
+}

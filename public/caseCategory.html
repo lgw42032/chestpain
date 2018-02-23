@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="js/libs/AmazeUI-2.7.2/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="js/libs/AmazeUI-2.7.2/assets/css/app.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel='stylesheet' href='css/caseCategory.css'/>
+    <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="css/load5.css"/>
+    <title>病历分类</title>
+</head>
+<body>
+<div class="load-container load5">
+    <div class="loader">Loading...</div>
+</div>
+<div class="body-content">
+    <header data-am-widget="header" class="am-header am-header-default title am-header-fixed">
+        <h1 class="am-header-title">
+            <a href="JavaScript:history.go(-1)" class="fl">
+                <img src="images/leftArr.png" alt=""/>
+            </a>
+            <a href="javascript:void(0)" class="patient-name">
+                病历分类
+            </a>
+        </h1>
+    </header>
+    <section>
+        <ul class="list clearfix">
+            <li class="clearfix   case-base">
+                <a class="case-base fl">基础信息</a><a class="case-base fr"><img src="images/right_arrow.png" alt="" /></a>
+            </li>
+            <li class="clearfix physical-examination">
+                <a class="physical-examination fl">体格检查</a><a class="physical-examination fr"><img src="images/right_arrow.png" alt="" /></a>
+            </li>
+            <li class="clearfix auxiliary-examination">
+                <a class="auxiliary-examination fl">辅助检查</a><a class="auxiliary-examination fr"><img src="images/right_arrow.png" alt="" /></a>
+            </li>
+            <li class="clearfix rescue-measures">
+                <a class="rescue-measures fl">施救措施</a><a class="rescue-measures fr"><img src="images/right_arrow.png" alt="" /></a>
+            </li>
+            <li class="clearfix chestpain-case">
+                <a class="chestpain-case fl">胸痛病历</a><a class="chestpain-case fr"><img src="images/right_arrow.png" alt="" /></a>
+            </li>
+            <li class="clearfix disease-informing">
+                <a class="disease-informing fl">病情告知</a><a class="disease-informing fr"><img src="images/right_arrow.png" alt="" /></a>
+            </li>
+            <li class="clearfix handover-record">
+                <a class="handover-record fl">交接记录</a><a class="handover-record fr"><img src="images/right_arrow.png" alt="" /></a>
+            </li>
+        </ul>
+    </section>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd alert-title">病历列表</div>
+        <div class="am-modal-bd alert-content"></div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+
+<script src="js/libs/seajs-master/dist/sea.js"></script>
+<!--<script src="js/libs/AmazeUI-2.7.2/assets/js/amazeui.min.js"></script>-->
+<script>
+    seajs.config({
+        //all alias path base on this//所有别名基于本路径
+
+        //define each self path//定义paths，本例未启用
+        //,paths:{
+        //  "jQueryPath":"jquery"
+        //}
+        base:"./js/",
+        //define each alias name here
+//        paths:{'libs':'/js/libs'},
+        alias:{ //auto add suffix .js
+            "jquery":"libs/jquery-3.2.1.min",
+            "amazeui":"libs/AmazeUI-2.7.2/assets/js/amazeui.js",
+            "pxToRem":"libs/pxToRem",
+        }
+        ,preload:'jQuery1.11'
+        ,vars:{
+            'locale':'zh-cn' //本例未启用,在模块中可用格式{key},即{locale}表示变量
+        }
+    });
+    seajs.use('./js/app.js',function(app){
+        app.script_load('caseCategory');
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="js/libs/AmazeUI-2.7.2/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="js/libs/AmazeUI-2.7.2/assets/css/app.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel='stylesheet' href='css/physicalExamination.css'/>
+    <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="css/load5.css"/>
+    <title>120急救信息管理</title>
+</head>
+<body style="height: 100%">
+<div class="load-container load5">
+    <div class="loader">Loading...</div>
+</div>
+<div class="body-content">
+    <header data-am-widget="header" class="am-header am-header-fixed am-header-default title">
+        <h1 class="am-header-title">
+            <a href="JavaScript:history.go(-1)" class="fl">
+                <img src="images/leftArr.png" alt=""/>
+            </a>
+            <a href="javascript:void(0)" class="patient-name"></a>
+        </h1>
+    </header>
+    <section>
+        <form action="" id="fmp">
+            <h3>身体信息</h3>
+            <ul class="am-g list">
+                <li class="am-u-sm-12 two">
+                    <label>体温 ：</label>
+                    <select name="T_q_c" data-am-selected></select>
+                    <input type="text" name="T_c" />℃
+                </li>
+                <li class="am-u-sm-12 two">
+                    <label>脉搏 ：</label>
+                    <select name="P_q_c" data-am-selected></select>
+                    <input type="text" name="P_c" />次/分
+                </li>
+                <li class="am-u-sm-12 two">
+                    <label>呼吸 ：</label>
+                    <select name="R_q_c" data-am-selected></select>
+                    <input type="text" name="R_c" />次/分
+                </li>
+                <li class="am-u-sm-12 two">
+                    <label>BP ：</label>
+                    <select name="BP_q_c" data-am-selected></select>
+                    <input type="text" name="BPH_c" />/<input type="text" name="BPL_c" />mmHg
+                </li>
+                <li class="am-u-sm-12">
+                    <label>体位 ：</label>
+                    <select name="Position_c" data-am-selected></select>
+                </li>
+                <li class="am-u-sm-12">
+                    <label>神志 ：</label>
+                    <select name="Mind_c" data-am-selected></select>
+                </li>
+                <li class="am-u-sm-12">
+                    <label>皮肤 ：</label>
+                    <select name="Skin_c" data-am-selected></select>
+                </li>
+                <li class="am-u-sm-12">
+                    <label>口唇紫绀 ：</label>
+                    <select name="Cyanosis_c" data-am-selected></select>
+                </li>
+                <li class="am-u-sm-12 two">
+                    <label>左侧瞳孔 ：</label>
+                    <select name="Pupil_L_q_c" data-am-selected></select>
+                    <input type="text" name="Pupil_L_c" />mm
+                </li>
+                <li class="am-u-sm-12">
+                    <label>对光反射 ：</label>
+                    <select name="Lightreflex_L_c" data-am-selected></select>
+                </li>
+                <li class="am-u-sm-12 two">
+                    <label>右侧瞳孔 ：</label>
+                    <select name="Pupil_R_q_c" data-am-selected></select>
+                    <input type="text" name="Pupil_R_c" />mm
+                </li>
+                <li class="am-u-sm-12">
+                    <label>对光反射 ：</label>
+                    <select name="Lightreflex_R_c" data-am-selected></select>
+                </li>
+                <li class="am-u-sm-12 one-line"><label class="fl">头颈部 ：</label><textarea class="fr" name="Neck_c" ></textarea></li>
+                <li class="am-u-sm-12 one-line"><label class="fl">胸部 ：</label><textarea class="fr" name="Breat_c" ></textarea></li>
+                <li class="am-u-sm-12 one-line"><label class="fl">肺部 ：</label><textarea class="fr" name="Lung_c" ></textarea></li>
+                <li class="am-u-sm-12 one-line"><label class="fl">心脏 ：</label><textarea class="fr" name="Heart_c" ></textarea></li>
+                <li class="am-u-sm-12 one-line"><label class="fl">腹部 ：</label><textarea class="fr" name="Belly_c" ></textarea></li>
+                <li class="am-u-sm-12 one-line"><label class="fl">四肢 ：</label><textarea class="fr" name="Limbs_c" ></textarea></li>
+                <li class="am-u-sm-12 one-line"><label class="fl">脊柱 ：</label><textarea class="fr" name="Spine_c" ></textarea></li>
+                <li class="am-u-sm-12 one-line"><label class="fl">神经反射 ：</label><textarea class="fr" name="Nervous_c" ></textarea></li>
+                <li class="am-u-sm-12 one-line"><label class="fl">其他 ：</label><textarea class="fr" name="Others_c" ></textarea></li>
+            </ul>
+        </form>
+    </section>
+    <div class="submit">
+        <button>保存</button>
+    </div>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="gobackFalse">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd alert-title"></div>
+        <div class="am-modal-bd alert-content"></div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="gobackTrue">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd alert-title"></div>
+        <div class="am-modal-bd alert-content"></div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+<script type="text/x-handlebars-template" id="optionTemName">
+    {{#if data }}
+    {{#each data}}
+    <option value="{{this.Name_c}}" text="{{this.Name_c}}">{{this.Name_c}}</option>
+    {{/each}}
+    {{/if}}
+</script>
+<script type="text/x-handlebars-template" id="optionTemCode">
+    {{#if data }}
+    {{#each data}}
+    <option value="{{this.Code_i}}" text="{{this.Name_c}}">{{this.Name_c}}</option>
+    {{/each}}
+    {{/if}}
+</script>
+<script type="text/x-handlebars-template" id="station">
+    {{#if data }}
+    {{#each data}}
+    <option value="{{this.stationCode}}" text="{{this.stationName}}" >{{this.stationName}}</option>
+    {{/each}}
+    {{/if}}
+
+</script>
+<script type="text/x-handlebars-template" id="doctor">
+    {{#if data }}
+    {{#each data}}
+    <option value="{{this.jobNum}}" text="{{this.personName}}">{{this.personName}}</option>
+    {{/each}}
+    {{/if}}
+
+</script>
+<script src="js/libs/seajs-master/dist/sea.js"></script>
+<script>
+    seajs.config({
+        //all alias path base on this//所有别名基于本路径
+
+        //define each self path//定义paths，本例未启用
+        //,paths:{
+        //  "jQueryPath":"jquery"
+        //}
+        base:"./js/",
+        //define each alias name here
+//        paths:{'libs':'/js/libs'},
+        alias:{ //auto add suffix .js
+            "jquery":"libs/jquery-3.2.1.min",
+            "amazeui":"libs/AmazeUI-2.7.2/assets/js/amazeui.js",
+            "pxToRem":"libs/pxToRem",
+            "handlebars":"libs/AmazeUI-2.7.2/assets/js/handlebars.min.js",
+            "widgets":"libs/AmazeUI-2.7.2/assets/js/amazeui.widgets.helper.js"
+        }
+        ,preload:'jQuery1.11'
+        ,vars:{
+            'locale':'zh-cn' //本例未启用,在模块中可用格式{key},即{locale}表示变量
+        }
+    });
+    seajs.use('./js/app.js',function(app){
+        app.script_load('physicalExamination');
+    });
+</script>
+</body>
+</html>

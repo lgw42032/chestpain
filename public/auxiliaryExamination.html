@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="js/libs/AmazeUI-2.7.2/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="js/libs/AmazeUI-2.7.2/assets/css/app.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel='stylesheet' href='css/auxiliaryExamination.css'/>
+    <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="css/load5.css"/>
+    <title>120急救信息管理</title>
+</head>
+<body style="height: 100%">
+<div class="load-container load5">
+    <div class="loader">Loading...</div>
+</div>
+<div class="body-content">
+    <header data-am-widget="header" class="am-header am-header-default am-header-fixed title">
+        <h1 class="am-header-title">
+            <a href="JavaScript:history.go(-1)" class="fl">
+                <img src="images/leftArr.png" alt=""/>
+            </a>
+            <a href="javascript:void(0)" class="patient-name"></a>
+        </h1>
+    </header>
+    <section>
+        <form  id="fma">
+            <h3>检查信息</h3>
+            <ul class="am-g list">
+                <li class="am-u-sm-12 two">
+                    <label>快速血糖值 ：</label>
+                    <select name="Glucose_q_c" data-am-selected></select>
+                    <input type="text" name="Glucose_c" />mmol/L
+                </li>
+                <li class="am-u-sm-12 two">
+                    <label>血氧饱和度 ：</label>
+                    <select name="Sop_q_c" data-am-selected></select>
+                    <input type="text" name="Sop_c" />%
+                </li>
+                <li class="am-u-sm-12 seven ">
+                    <label>心电图检查情况 ：</label>
+                    <select name="Ecg_c" data-am-selected></select>
+                </li>
+                <li class="am-u-sm-12 one-line">
+                    <label class="fl">心电图诊断 ：</label>
+                    <textarea class="fr"  name="Ecgdiag_c"></textarea>
+                </li>
+                <li class="am-u-sm-12 one-line">
+                    <label class="fl">其他辅助检查 ：</label>
+                    <textarea class="fr" name="Examination_c"></textarea>
+                </li>
+            </ul>
+        </form>
+    </section>
+    <div class="submit">
+        <button>保存</button>
+    </div>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="gobackFalse">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd alert-title"></div>
+        <div class="am-modal-bd alert-content"></div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="gobackTrue">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd alert-title"></div>
+        <div class="am-modal-bd alert-content"></div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+<script src="js/libs/seajs-master/dist/sea.js"></script>
+<script type="text/x-handlebars-template" id="optionTemName">
+    {{#if data }}
+    {{#each data}}
+    <option value="{{this.Name_c}}" text="{{this.Name_c}}">{{this.Name_c}}</option>
+    {{/each}}
+    {{/if}}
+</script>
+<script type="text/x-handlebars-template" id="optionTemCode">
+    {{#if data }}
+    {{#each data}}
+    <option value="{{this.Code_i}}" text="{{this.Name_c}}">{{this.Name_c}}</option>
+    {{/each}}
+    {{/if}}
+</script>
+<script>
+    seajs.config({
+        //all alias path base on this//所有别名基于本路径
+
+        //define each self path//定义paths，本例未启用
+        //,paths:{
+        //  "jQueryPath":"jquery"
+        //}
+        base:"./js/",
+        //define each alias name here
+//        paths:{'libs':'/js/libs'},
+        alias:{ //auto add suffix .js
+            "jquery":"libs/jquery-3.2.1.min",
+            "amazeui":"libs/AmazeUI-2.7.2/assets/js/amazeui.js",
+            "pxToRem":"libs/pxToRem",
+            "handlebars":"libs/AmazeUI-2.7.2/assets/js/handlebars.min.js",
+            "widgets":"libs/AmazeUI-2.7.2/assets/js/amazeui.widgets.helper.js"
+        }
+        ,preload:'jQuery1.11'
+        ,vars:{
+            'locale':'zh-cn' //本例未启用,在模块中可用格式{key},即{locale}表示变量
+        }
+    });
+    seajs.use('./js/app.js',function(app){
+        app.script_load('auxiliaryExamination');
+    });
+</script>
+</body>
+</html>

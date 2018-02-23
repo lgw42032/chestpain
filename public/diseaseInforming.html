@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="js/libs/AmazeUI-2.7.2/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="js/libs/AmazeUI-2.7.2/assets/css/app.css"/>
+    <link rel="stylesheet" href="js/libs/datetimepicker-master/css/amazeui.datetimepicker.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel='stylesheet' href='css/diseaseInforming.css'/>
+    <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="css/load5.css"/>
+    <title>120急救信息管理</title>
+
+</head>
+<body style="height: 100%">
+<div class="load-container load5">
+    <div class="loader">Loading...</div>
+</div>
+<div class="body-content">
+    <header data-am-widget="header" class="am-header am-header-default am-header-fixed title">
+        <h1 class="am-header-title">
+            <a href="JavaScript:history.go(-1)" class="fl">
+                <img src="images/leftArr.png" alt=""/>
+            </a>
+            <a href="javascript:void(0)" class="patient-name"></a>
+        </h1>
+    </header>
+    <section>
+        <form id="fmi">
+            <h3>基本信息</h3>
+            <ul class="am-g list">
+                <li class="am-u-sm-6 ">
+                    <label>姓名 ：</label><span name="Name_c"></span>
+                </li>
+                <li class="am-u-sm-6">
+                    <label>性别 ：</label><span name="Sex_c"></span>
+                </li>
+                <li class="am-u-sm-12">
+                    <label>年龄 ：</label><span name="Age_c" ></span>
+                </li>
+                <li class="am-u-sm-12">
+                    <label>出诊单位 ：</label><span name="stationName" ></span>
+                </li>
+                <li class="am-u-sm-12">
+                    <!--<label class="fl">到达现场时间 ：</label>-->
+                    <!--<input name="Tell_time">-->
+                    <label class="fl">到达现场时间：</label>
+                    <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                        <input size="16" type="text"  class="am-form-field"  name="Tell_time"  readonly>
+                        <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                    </div>
+                </li>
+                <li class="am-u-sm-12">
+                    <!--<label class="fl">到达患者身边时间 ：</label>-->
+                    <!--<input name="Arr_patient_time">-->
+                    <label class="fl">到达患者身边时间：</label>
+                    <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                        <input size="16" type="text"  class="am-form-field"  name="Arr_patient_time"  readonly>
+                        <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                    </div>
+                </li>
+            </ul>
+            <h3>病情告知</h3>
+            <ul class="am-g list truthTelling">
+                <li class="am-u-sm-12 ">
+                    <input type="checkbox" name="truthTelling" value="1" id="truthTelling1"><label for="truthTelling1"> 1、病情及救治措施已告知，知情并同意；</label>
+                </li>
+                <li class="am-u-sm-12">
+                    <input type="checkbox" name="truthTelling" value="2" id="truthTelling2"><label for="truthTelling2"> 2、在转运途患者病情危重，已告知并知情；</label>
+                </li>
+                <li class="am-u-sm-12">
+                    <input type="checkbox" name="truthTelling" value="3" id="truthTelling3"><label for="truthTelling3"> 3、在转运途中患者可能出现病情加重或发生其他意外情况；</label>
+                </li>
+                <li class="am-u-sm-12">
+                    <input type="checkbox" name="truthTelling" value="4" id="truthTelling4"><label for="truthTelling4"> 4、根据病情，建议送至 ：</label>
+                    <input  name="j_content_c" class="content" id="j_content_c" class="roll"/>
+                </li>
+                <li class="am-u-sm-12">
+                    <input type="checkbox" name="truthTelling" value="5" id="truthTelling5"><label for="truthTelling5"> 5、患方经过慎重考虑决定转送至 ：</label>
+                    <input  name="y_content_c" class="content"  id="y_content_c" class="roll"/>
+                </li>
+                <li class="am-u-sm-12">
+                    <input type="checkbox" name="truthTelling" value="6" id="truthTelling6"><label for="truthTelling6"> 6、患方经过慎重考虑，决定不检查、不治疗；</label>
+                </li>
+                <li class="am-u-sm-12">
+                    <input type="checkbox" name="truthTelling" value="7" id="truthTelling7"><label for="truthTelling7"> 7、患方经过慎重考虑，决定放弃抢救；</label>
+                </li>
+                <li class="am-u-sm-12">
+                    <input type="checkbox" name="truthTelling" value="8" id="truthTelling8"><label for="truthTelling8"> 8、患方经过慎重考虑，决定不去医院进一步治疗，并统一救护车返回；</label >
+                </li>
+                <li class="am-u-sm-12">
+                    <input type="checkbox" name="truthTelling" value="9" id="truthTelling9"><label for="truthTelling9"> 9、本次救治的院前急救病例，请到我急救站索取；</label >
+                </li>
+                <li class="am-u-sm-12 one-line">
+                    <input type="checkbox" name="truthTelling" value="10" id="truthTelling10"><label for="truthTelling10"> 10、其他：</label ><textarea name="o_content_c" id="o_content_c"  class="roll"></textarea>
+                </li>
+                <li class="am-u-sm-12">
+                    <label>患者/患方关系(关系) ：</label><input type="text" name="Relation_c" />
+                </li>
+                <li class="am-u-sm-12">
+                    <label>见证人 ：</label><input type="text" name="Responsible_c" />
+                </li>
+                <li class="am-u-sm-12">
+                    <label>告知人 ：</label><input type="text" name="Teller_c" />
+                </li>
+            </ul>
+        </form>
+    </section>
+    <div class="submit">
+        <button>保存</button>
+    </div>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="gobackFalse">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd alert-title"></div>
+        <div class="am-modal-bd alert-content"></div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="gobackTrue">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd alert-title"></div>
+        <div class="am-modal-bd alert-content"></div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+<script src="js/libs/seajs-master/dist/sea.js"></script>
+<script>
+    seajs.config({
+        //all alias path base on this//所有别名基于本路径
+
+        //define each self path//定义paths，本例未启用
+        //,paths:{
+        //  "jQueryPath":"jquery"
+        //}
+        base:"./js/",
+        //define each alias name here
+//        paths:{'libs':'/js/libs'},
+        alias:{ //auto add suffix .js
+            "jquery":"libs/jquery-3.2.1.min",
+            "amazeui":"libs/AmazeUI-2.7.2/assets/js/amazeui.js",
+            "pxToRem":"libs/pxToRem",
+            "handlebars":"libs/AmazeUI-2.7.2/assets/js/handlebars.min.js",
+            "widgets":"libs/AmazeUI-2.7.2/assets/js/amazeui.widgets.helper.js",
+            "datatimepicker":"libs/datetimepicker-master/js/amazeui.datetimepicker.js",
+            "zh-cn":"libs/datetimepicker-master/js/locales/amazeui.datetimepicker.zh-CN.js"
+        }
+        ,preload:'jQuery1.11'
+        ,vars:{
+            'locale':'zh-cn' //本例未启用,在模块中可用格式{key},即{locale}表示变量
+        }
+    });
+    seajs.use('./js/app.js',function(app){
+        app.script_load('diseaseInforming');
+    });
+</script>
+</body>
+</html>

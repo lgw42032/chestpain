@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="js/libs/AmazeUI-2.7.2/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="js/libs/AmazeUI-2.7.2/assets/css/app.css"/>
+    <link rel="stylesheet" href="js/libs/datetimepicker-master/css/amazeui.datetimepicker.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel='stylesheet' href='css/chestpainCase.css'/>
+    <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="css/load5.css"/>
+    <title>120急救信息管理</title>
+</head>
+<body style="height: 100%" >
+<div class="load-container load5">
+    <div class="loader">Loading...</div>
+</div>
+<div class="body-content">
+    <header data-am-widget="header" class="am-header am-header-default title am-header-fixed">
+        <h1 class="am-header-title">
+            <a href="JavaScript:history.go(-1)" class="fl">
+                <img src="images/leftArr.png" alt=""/>
+            </a>
+            <a href="javascript:void(0)" class="patient-name"></a>
+        </h1>
+    </header>
+    <section>
+        <form id="fmc"  >
+            <fieldset>
+                <ul class="am-g list time">
+                    <li class="am-u-sm-12">
+                        <label>姓名 ：</label><span name="name"></span>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>性别 ：</label><span name="sex"></span>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>年龄 ：</label><span name="age"></span>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">初步诊断时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preJudgeTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">初步诊断 ：</label><textarea  class="fl" name="preJudge" /></textarea>`
+                    </li>
+
+                </ul>
+                <h3>院前部分</h3>
+                <ul class="am-g list time">
+                    <li class="am-u-sm-12 necessary">
+                        <label class="fl">发病时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="onsetTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                        <input type="hidden" class="onsetTimeHidden"/>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>发病地点 ：</label><input type="text" name="onsetSite" />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">首次医疗接触时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="firstMedicalContactTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>首次医疗接触时间地点 ：</label><input type="text" name="firstMedicalContactSite" />
+                    </li>
+                    <li class="am-u-sm-12 necessary">
+                        <label>呼叫120时间 ：</label>
+                        <span id="callTime" name="callTime"></span>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>接听电话时间 ：</label>
+                        <span id="handleBeginTime" name="handleBeginTime"></span>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>通知出车时间 ：</label>
+                        <span id="dispatchTime" name="dispatchTime"></span>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>救护车出车时间 ：</label>
+                        <span id="Amb_out_time" name="Amb_out_time"></span>
+                    </li>
+
+                    <li class="am-u-sm-12 necessary">
+                        <label>到达现场时间 ：</label>
+                        <span id="Arr_loc_time" name="Arr_loc_time"></span>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>离开现场时间 ：</label>
+                        <span id="Lea_loc_time" name="Lea_loc_time"></span>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>出诊医生 ：</label>
+                        <input id="Doctor_c" name="Doctor_c">
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>出诊护士 ：</label>
+                        <input id="Nurse_c" name="Nurse_c">
+                    </li>
+                    <li class="am-u-sm-12 check">
+                        <label>院前检查项目 ：</label>
+                        <!--<input type="text" name="preHosCheck" />-->
+                        <label><input type="checkbox" value="0" name="preHosCheck"/>心电图</label>
+                        <label><input type="checkbox" value="1" name="preHosCheck"/>血常规</label>
+                        <label><input type="checkbox" value="2" name="preHosCheck"/>凝血四项</label>
+                        <label><input type="checkbox" value="3" name="preHosCheck"/>急诊生化</label>
+                        <label style="width: 18%"><input type="checkbox" value="4" name="preHosCheck"/>急诊电解质</label>
+                    </li>
+                    <li class="am-u-sm-12 check">
+                        <label></label>
+                        <!--<input type="text" name="preHosCheck" />-->
+                        <label><input type="checkbox" value="5" name="preHosCheck"/>心梗三项</label>
+                        <label><input type="checkbox" value="6" name="preHosCheck"/>心脏生化</label>
+                        <label><input type="checkbox" value="7" name="preHosCheck"/>GT</label>
+                        <label><input type="checkbox" value="8" name="preHosCheck"/>B超</label>
+                        <label><input type="checkbox" value="9" name="preHosCheck"/>X线</label>
+                    </li>
+                    <li class="am-u-sm-12 necessary">
+                        <label class="fl">院前心电图时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosECGCheckTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12 necessary">
+                        <label class="fl">心电图诊断时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosECGDiagnosisTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">院前抽血时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosBloodTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">院前双抗给药时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosDbResistanceTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>院前双抗给药名称及剂量 ：</label><textarea name="preHosDbResistanceDrugsAndDosage" /></textarea>
+                    </li>
+                    <!--<li class="am-u-sm-12">-->
+                        <!--<label>院前双抗给药剂量 ：</label><input type="text" name="preHosDbResistanceDosage" />-->
+                    <!--</li>-->
+                    <li class="am-u-sm-12">
+                        <label class="fl">院前抗凝给药时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosArixtraTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>院前抗凝给药名称及剂量 ：</label><textarea  name="preHosArixtraDrugsAndDosage" /></textarea>
+                    </li>
+
+                    <li class="am-u-sm-12">
+                        <label class="fl">院前传输12导联心电图时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosECGTransferTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">院前诊断时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosDiagnosis"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12 necessary">
+                        <label class="fl">院前启动导管室时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosStartCatheterTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12 necessary">
+                        <label>到达医院时间 ：</label>
+                        <span id="Arr_hos_time" name="Arr_hos_time"></span>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">院前溶栓开始时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosStartTbTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">院前溶栓结束时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosEndTbTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">患者进入急诊科时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="enterEmergencyTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">患者进入导管室时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="enterCatheterTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">患者送入CUU时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="enterCCUTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+
+                </ul>
+                <h3>急诊院内部分</h3>
+                <ul class="am-g list">
+                    <li class="am-u-sm-6 two sel">
+                        <label>急诊科接诊医生 ：</label><input type="text"  name="EmReceptionDoctor"  />
+                    </li>
+                    <li class="am-u-sm-6 two ">
+                        <label>急诊科接诊护士 ：</label><input type="text"  name="EmReceptionNurse"  />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">转出医院大门时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="turnOutHosGateTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">到达我院大门时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="arrHosGateTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">接诊时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="receptionTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">挂号时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="registrationTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12 check">
+                        <label>院前检查项目 ：</label>
+                        <!--<input type="text" name="preHosCheck" />-->
+                        <label><input type="checkbox" value="0" name="preHospitalInspectionItems"/>心电图</label>
+                        <label><input type="checkbox" value="1" name="preHospitalInspectionItems"/>血常规</label>
+                        <label><input type="checkbox" value="2" name="preHospitalInspectionItems"/>凝血四项</label>
+                        <label><input type="checkbox" value="3" name="preHospitalInspectionItems"/>急诊生化</label>
+                        <label style="width: 18%"><input type="checkbox" value="4" name="preHospitalInspectionItems"/>急诊电解质</label>
+                    </li>
+                    <li class="am-u-sm-12 check">
+                        <label></label>
+                        <!--<input type="text" name="preHospitalInspectionItems" />-->
+                        <label><input type="checkbox" value="5" name="preHospitalInspectionItems"/>心梗三项</label>
+                        <label><input type="checkbox" value="6" name="preHospitalInspectionItems"/>心脏生化</label>
+                        <label><input type="checkbox" value="7" name="preHospitalInspectionItems"/>GT</label>
+                        <label><input type="checkbox" value="8" name="preHospitalInspectionItems"/>B超</label>
+                        <label><input type="checkbox" value="9" name="preHospitalInspectionItems"/>X线</label>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">采血时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="bloodTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12 ">
+                        <label class="fl">血标本送检时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="bloodInspectionTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12 ">
+                        <label class="fl">肌钙蛋白出结果时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="CTnResultTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">院内首份心电图时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="inHosFirstECGCheckTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">心电图诊断时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="inhosFirstECGDiagnosisTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">呼叫会诊时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="callConsultationTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">会诊医师到达时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="consultationDoctorArrTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">会诊结束时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="consultationEndTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">护士给药时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="nurseDoseTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>药物名称及剂量 ：</label><textarea name="drugsAndDosage" /></textarea>
+                    </li>
+                    <!--<li class="am-u-sm-12">-->
+                        <!--<label>药物剂量 ：</label><input type="text" name="drugDosage" />-->
+                    <!--</li>-->
+
+                    <li class="am-u-sm-12">
+                        <label class="fl">决定住院时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="determineInHosTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">院内溶栓开始时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="inHosStartTbTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">院内溶栓结束时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="inHosEndTbTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>溶栓药物名称及剂量 ：</label><textarea name="TbDrugsAndDosage"  /></textarea>
+                    </li>
+                    <!--<li class="am-u-sm-12">-->
+                        <!--<label>溶栓药物剂量 ：</label><input type="text" name="TbDrugDosage" />-->
+                    <!--</li>-->
+                    <li class="am-u-sm-12">
+                        <label class="fl">院内抗凝给药时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="inHosArixtraTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+
+                    <li class="am-u-sm-12">
+                        <label>院内抗凝给药名称及剂量 ：</label><textarea name="inHosArixtraDrugsAndDosage" /></textarea>
+                    </li>
+                    <!--<li class="am-u-sm-12">-->
+                        <!--<label>院内抗凝给药剂量 ：</label><input type="text" name="inHosArixtraDosage" />-->
+                    <!--</li>-->
+                    <li class="am-u-sm-12">
+                        <label class="fl">决定启用导管室时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="determineStartCatheterTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">开始知情同意时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="startInformedConsentTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">签订知情同意时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="signInformedConsentTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>血液检验技师姓名 ：</label><input type="text" name="bloodChecker" />
+                    </li>
+
+                    <li class="am-u-sm-12">
+                        <label class="fl">血液标本送达时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="bloodDeliveryTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">血液检验开始时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="bloodCheckStartTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">血液检验结束时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="bloodCheckEndTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">血液检验报告时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="bloodCheckReportTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+
+                    <li class="am-u-sm-12">
+                        <label class="fl">通知CT室时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="noticeCTTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>CT室技师姓名 ：</label><input type="text" name="CTchecker" />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">患者到达CT室时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="arriveCTTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">CT检查开始时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="CTCheckStartTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">CT检查出报告时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="CTCheckReportTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">患者离开CT室时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="leaveCTTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+
+                    <li class="am-u-sm-12">
+                        <label class="fl">通知B超室时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="noticeBTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>B超室技师姓名 ：</label><input type="text" name="Bchecker" />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">患者到达B超室时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="arriveBTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">B超检查开始时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="BCheckStartTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">B超检查出报告时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="BCheckReportTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">患者离开B超室时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="leaveBTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+
+
+                    <li class="am-u-sm-12">
+                        <label class="fl">通知放射科时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="noticeXrayTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>放射科技师姓名 ：</label><input type="text" name="Xraychecker" />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">患者到达放射科时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="arriveXrayTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">胸片检查开始时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="XrayCheckStartTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">胸片检查出报告时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="XrayCheckReportTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">患者离开放射科时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="leaveXrayTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+
+                    <li class="am-u-sm-12">
+                        <label class="fl">通知核医学科时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="noticeNuclearDepTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>核医学科技师姓名 ：</label><input type="text" name="NuclearDepchecker" />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">患者到达核医学科时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="arriveNuclearDepTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">ECT检查开始时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="ECTCheckStartTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">ECT检查出报告时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="ECTCheckReportTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">患者离开核医学科时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="leaveNuclearDepTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                </ul>
+                <h3>心外科部分</h3>
+                <ul class="am-g list">
+                    <li class="am-u-sm-12">
+                        <label>心外科接诊医生 ：</label><input type="text" name="surgeonReceptionDoc" />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">决定手术时间 ：</label>
+
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="determineSurgeryTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">开始知情同意时间 ：</label>
+
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="startSurgeryConsentTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">签订手术同意书时间 ：</label>
+                        <!--<input type="text" name="signSurgeryConsentTime" />-->
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="signSurgeryConsentTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">外科手术开始时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="surgeryStartTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">手术人员到达手术室时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="surgeonArriveRoomTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">手术结束时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="surgeryEndTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                </ul>
+                <h3>心内科部分</h3>
+                <ul class="am-g list">
+                    <li class="am-u-sm-12">
+                        <label>心内科接诊医师 ：</label><input type="text" name="cardiologyReceptionDoc " />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>心内科接诊护士 ：</label><input type="text" name="cardiologyReceptionNur" />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">决定介入时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="determineCatheterTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">开始谈介入知情同意时间：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="startCatheterConsentTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">签订介入知情同意时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="signCatheterConsentTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">启动导管室时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="startCatheterTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+
+
+                    <li class="am-u-sm-12">
+                        <label class="fl">介入人员到达时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="cardiologistArriveRoomTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>介入人员姓名 ：</label><input type="text" name="cardiologistName" />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">患者到达导管室时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="arriveCatheterTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">介入手术开始时间：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="catheterStartTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">穿刺时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="punctureTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">造影开始时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="radiographyStartTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+
+                    <li class="am-u-sm-12">
+                        <label class="fl">造影结束时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="radiographyEndTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">再次取得PCI知情时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="PCIConsentTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">球囊扩张时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="DBTTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">介入手术结束时间：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="catheterEndTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                </ul>
+                <h3>转归部分</h3>
+                <ul class="am-g list">
+
+                    <li class="am-u-sm-12">
+                        <label>出院诊断 ：</label><input type="text" name="leaveHosDiagnosis" />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>患者转归 ：</label><input type="text" name="patientOutcome" />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">转归时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime" style="width: 60%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="outcomeTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>医生：</label><input type="text" name="outcomeDoc" />
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+    </section>
+    <div class="submit">
+        <button>保存</button>
+    </div>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="gobackFalse">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd alert-title"></div>
+        <div class="am-modal-bd alert-content"></div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="gobackTrue">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd alert-title"></div>
+        <div class="am-modal-bd alert-content"></div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+<script src="js/libs/seajs-master/dist/sea.js"></script>
+<script>
+    seajs.config({
+        //all alias path base on this//所有别名基于本路径
+
+        //define each self path//定义paths，本例未启用
+        //,paths:{
+        //  "jQueryPath":"jquery"
+        //}
+        base:"./js/",
+        //define each alias name here
+//        paths:{'libs':'/js/libs'},
+        alias:{ //auto add suffix .js
+            "jquery":"libs/jquery-3.2.1.min",
+            "amazeui":"libs/AmazeUI-2.7.2/assets/js/amazeui.js",
+            "pxToRem":"libs/pxToRem",
+//            "handlebars":"libs/AmazeUI-2.7.2/assets/js/handlebars.min.js",
+//            "widgets":"libs/AmazeUI-2.7.2/assets/js/amazeui.widgets.helper.js",
+            "datatimepicker":"libs/datetimepicker-master/js/amazeui.datetimepicker.js",
+            "zh-cn":"libs/datetimepicker-master/js/locales/amazeui.datetimepicker.zh-CN.js"
+        }
+        ,preload:'jQuery1.11'
+        ,vars:{
+            'locale':'zh-cn' //本例未启用,在模块中可用格式{key},即{locale}表示变量
+        }
+    });
+    seajs.use('./js/app.js',function(app){
+        app.script_load('chestpainCase');
+    });
+</script>
+</body>
+</html>

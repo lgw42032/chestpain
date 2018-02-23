@@ -1,0 +1,113 @@
+.am-header-default {
+  background: #0f8fcb;
+}
+.am-header .am-header-title {
+  font-size: 0.275rem;
+  margin: 0;
+}
+.am-header .am-header-title img {
+  width: 0.13125rem;
+  height: 0.21875rem;
+}
+.list > li {
+  border-bottom: 1px solid #EBEBEB;
+  padding: 0.1375rem 0.175rem;
+  font-size: 0.175rem;
+  line-height: 0.25rem;
+}
+.list > li label {
+  font-weight: 400;
+}
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+[class*=am-u-] {
+  padding: 0 0.175rem;
+}
+label {
+  font-weight: 400;
+}
+.am-u-sm-12 label {
+  width: 15%;
+}
+.am-u-sm-6 label {
+  width: 55%;
+}
+.am-u-sm-6 input {
+  width: 44%;
+}
+.two label {
+  width: 15%;
+}
+.two input {
+  width: 24%;
+  margin-left: 1em;
+}
+section {
+  padding-top: 0.1875rem;
+}
+section h3 {
+  background: #0f8fcb;
+  color: #fff;
+  font-size: 0.275rem;
+  padding-left: 0.175rem;
+  line-height: 0.3125rem;
+  height: 0.3125rem;
+}
+label {
+  margin: 0;
+}
+input {
+  color: #000;
+}
+textarea {
+  color: #000;
+  border: 1px solid #e6e6e6;
+  outline: none;
+  height: 5em;
+}
+.one-line label {
+  width: 15%;
+}
+.one-line textarea {
+  width: 85%;
+  padding-left: 1em;
+}
+.am-btn {
+  font-size: 0.175rem;
+}
+.am-selected {
+  width: auto;
+}
+.am-selected-list {
+  font-size: 0.175rem;
+}
+.am-selected-list {
+  max-height: 300px;
+  overflow: auto;
+}
+input {
+  width: 55%;
+  line-height: 2.2em;
+  border: 1px solid #e6e6e6;
+  padding-left: 1em;
+}
+.time li label {
+  width: 20%;
+}
+textarea {
+  height: 5em;
+}
+.submit {
+  padding: 2em 0;
+  text-align: center;
+}
+.submit button {
+  padding: .5em 1em;
+  background-color: #0f8fcb ;
+  font-size: 0.275rem;
+  color: #fff;
+  border-radius: 5px;
+}

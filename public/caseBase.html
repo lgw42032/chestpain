@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="js/libs/AmazeUI-2.7.2/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="js/libs/AmazeUI-2.7.2/assets/css/app.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel='stylesheet' href='css/caseBase.css'/>
+    <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="css/load5.css"/>
+    <title>120急救信息管理</title>
+</head>
+<body style="height: 100%" id="baseBody">
+<div class="load-container load5">
+    <div class="loader">Loading...</div>
+</div>
+<div class="body-content">
+    <header data-am-widget="header" class="am-header am-header-default title am-header-fixed">
+        <h1 class="am-header-title">
+            <a href="JavaScript:history.go(-1)" class="fl">
+                <img src="images/leftArr.png" alt=""/>
+            </a>
+            <a href="javascript:void(0)" class="patient-name"></a>
+        </h1>
+    </header>
+
+    <section>
+        <form id="fm"  >
+            <fieldset>
+                <h3>出车信息</h3>
+                <ul class="am-g list time">
+                    <li class="am-u-sm-12">
+                        <label>派车时间 ：</label><input  name="Send_car_time" />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>出车时间 ：</label><input type="text" name="Amb_out_time" />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>到达现场时间 ：</label><input type="text" name="Arr_loc_time" />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>离开现场时间 ：</label><input type="text" name="Lea_loc_time" />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>到达医院时间 ：</label><input type="text" name="Arr_hos_time" />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>完成时间 ：</label><input type="text" name="Complete_time" />
+                    </li>
+                </ul>
+                <h3>患者信息</h3>
+                <ul class="am-g list">
+                    <li class="am-u-sm-6 two sel">
+                        <label>姓名 ：</label><input type="text"  name="Name_c" id="Name_c" required/>
+                    </li>
+                    <li class="am-u-sm-6 two ">
+                        <label>性别 ：</label>
+                        <select name="Sex_c" data-am-selected id="Sex_c">
+                            <option value="不详" text="不详">不详</option>
+                            <option value="男" text="男">男</option>
+                            <option value="女" text="女">女</option>
+                        </select>
+
+                    </li>
+                    <li class="am-u-sm-6 two ">
+                        <label>年龄 ：</label>
+                        <select name="Age_c" id="Age_c" data-am-selected></select>
+                    </li>
+                    <li class="am-u-sm-6 two sel">
+                        <label>民族 ：</label>
+                        <select name="Folk_i" id="Folk_c" data-am-selected></select>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>身份证号码 ：</label><input type="text" name="ID_c" />
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>救治地点 ：</label><input type="text" name="Local_c" />
+                    </li>
+                    <li class="am-u-sm-6 four">
+                        <label>入院科室 ： </label>
+                        <select name="In_Department_i" id="In_Department_c" data-am-selected></select>
+                        <!--<input type="text" name="In_Department_c" />-->
+                    </li>
+                    <li class="am-u-sm-6 four">
+                        <label>出诊科室 ： </label>
+                        <select name="Department_i" id="Department_c" data-am-selected></select>
+                        <!--<input type="text" name="Department_c" />-->
+                    </li>
+                    <li class="am-u-sm-6 two">
+                        <label>病史提供人 ： </label>
+                        <select name="Provider_c" data-am-selected></select>
+                    </li>
+                    <li class="am-u-sm-6 four">
+                        <label>联系人 ： </label>
+                        <select name="Linkman_c" data-am-selected></select>
+                    </li>
+                    <li class="am-u-sm-6 four sel">
+                        <label>联系电话 ： </label><input type="text" name="LinkTel_c" />
+                    </li>
+                    <li class="am-u-sm-6 four">
+                        <label>病人转归 ： </label>
+                        <select name="Outcomes_i" id="Outcomes_c" data-am-selected></select>
+                    </li>
+                    <li class="am-u-sm-6 four">
+                        <label>呼救原因 ： </label>
+                        <select name="Help_reason_i" id="Help_reason_c" data-am-selected></select>
+                    </li>
+                    <li class="am-u-sm-6 two">
+                        <label>病情 ： </label>
+                        <select name="Ill_state_i" id="Ill_state_c" data-am-selected></select>
+                    </li>
+                    <li class="am-u-sm-6 two">
+                        <label>救治结果 ： </label>
+                        <select name="Cure_result_i" id="Cure_result_c"  data-am-selected></select>
+                    </li>
+                    <li class="am-u-sm-6 two">
+                        <label>疾病类型 ： </label>
+                        <select name="Disease_type_i" id="Disease_type_c" data-am-selected></select>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>送往地点 ： </label>
+                        <select name="Send_hos_c" id="Send_hos_c" data-am-selected></select>
+                        <select name="Send_add_c" id="Send_add_c" data-am-selected></select>
+                        <!--<input type="text" name="Send_add_c" style="margin-left: 1em"  />-->
+                    </li>
+                    <li class="am-u-sm-6 four">
+                        <label>出诊医生 ： </label>
+                        <select name="Doctor_c" data-am-selected></select>
+                    </li>
+                    <li class="am-u-sm-6 four">
+                        <label>出诊护士 ： </label>
+                        <select name="Nurse_c" data-am-selected></select>
+                    </li>
+                    <li class="am-u-sm-12"><label>出诊司机 ： </label><select name="Driver_c" data-am-selected="{dropUp: 1}"></select></li>
+                    <li class="am-u-sm-12 one-line-lang">
+                        <label>既往病史 ： </label>
+                        <select name="Pmh_content_c" data-am-selected></select>
+                        <input type="text" name="Pmh_c" style="margin-left: 1em" />
+                    </li>
+                    <li class="am-u-sm-12 one-line-lang">
+                        <label>药物过敏史 ： </label>
+                        <select name="Allergy_c" data-am-selected></select>
+                        <input type="text" name="Allergy_drugs_c"  style="margin-left: 1em" />
+                    </li>
+                    <li class="am-u-sm-12 one-line">
+                        <label class="fl">主诉 ： </label><textarea class="fr" type="text" name="Complaint_c" /></textarea>
+                    </li>
+                    <li class="am-u-sm-12 one-line">
+                        <label class="fl">现病史 ： </label><textarea class="fr" type="text" name="Hpc_c" /></textarea>
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+    </section>
+    <div class="submit">
+        <button>保存</button>
+    </div>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="gobackFalse">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd alert-title"></div>
+        <div class="am-modal-bd alert-content"></div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="gobackTrue">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd alert-title"></div>
+        <div class="am-modal-bd alert-content"></div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+<script type="text/x-handlebars-template" id="optionTemName">
+    {{#if data }}
+    {{#each data}}
+    <option value="{{this.Name_c}}" text="{{this.Name_c}}">{{this.Name_c}}</option>
+    {{/each}}
+    {{/if}}
+</script>
+<script type="text/x-handlebars-template" id="optionTemCode">
+    {{#if data }}
+    {{#each data}}
+    <option value="{{this.Code_i}}" text="{{this.Name_c}}">{{this.Name_c}}</option>
+    {{/each}}
+    {{/if}}
+</script>
+<script type="text/x-handlebars-template" id="station">
+    {{#if data }}
+    {{#each data}}
+    <option value="{{this.stationName}}" text="{{this.stationName}}" >{{this.stationName}}</option>
+    {{/each}}
+    {{/if}}
+
+</script>
+<script type="text/x-handlebars-template" id="doctor">
+    {{#if data }}
+    {{#each data}}
+    <option value="{{this.personName}}">{{this.personName}}</option>
+    {{/each}}
+    {{/if}}
+
+</script>
+<script src="js/libs/seajs-master/dist/sea.js"></script>
+<script>
+    seajs.config({
+        //all alias path base on this//所有别名基于本路径
+
+        //define each self path//定义paths，本例未启用
+        //,paths:{
+        //  "jQueryPath":"jquery"
+        //}
+        base:"./js/",
+        //define each alias name here
+//        paths:{'libs':'/js/libs'},
+        alias:{ //auto add suffix .js
+            "jquery":"libs/jquery-3.2.1.min",
+            "amazeui":"libs/AmazeUI-2.7.2/assets/js/amazeui.js",
+            "pxToRem":"libs/pxToRem",
+            "handlebars":"libs/AmazeUI-2.7.2/assets/js/handlebars.min.js",
+            "widgets":"libs/AmazeUI-2.7.2/assets/js/amazeui.widgets.helper.js"
+        }
+        ,preload:'jQuery1.11'
+        ,vars:{
+            'locale':'zh-cn' //本例未启用,在模块中可用格式{key},即{locale}表示变量
+        }
+    });
+    seajs.use('./js/app.js',function(app){
+        app.script_load('caseBase');
+    });
+</script>
+</body>
+</html>

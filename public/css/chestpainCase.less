@@ -1,0 +1,152 @@
+@basePx: 0.0125rem;
+@titleFont: 0.275rem;
+@baseFont:0.175rem;
+
+.am-header-default {
+  background: #0f8fcb;
+}
+.am-header .am-header-title {
+  font-size: @titleFont;
+  margin: 0;
+  img{
+    width: 10.5*@basePx;
+    height: 17.5*@basePx;
+  }
+}
+.line{
+  height: 10*@basePx;
+  background-color: #EBEBEB;
+}
+
+body{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+[class*=am-u-] {
+  padding: 0  0.2rem;
+}
+label{
+  font-weight: 400;
+}
+
+.am-u-sm-12{
+  label{
+    width: 33%;
+    padding: 10*@basePx 0;
+  }
+  >input{
+    border: 1px solid #e6e6e6;
+    width: 60%;
+    line-height: 36*@basePx;
+    padding-left: 1em;
+    //margin-left: 1em;
+  }
+  >textarea{
+    width: 58%;
+    border: 1px solid #e6e6e6;
+    height: 6em;
+  }
+}
+.check{
+  label{
+    width: 15%;
+  }
+  label:first-of-type{
+    width: 18%;
+  }
+}
+section{
+  padding-top: 15*@basePx;
+  h3{
+    background: #0f8fcb;
+    color: #fff;
+    font-size: @titleFont;
+    padding-left: 14*@basePx;
+    line-height: 25*@basePx;
+    height:25*@basePx ;
+  }
+}
+label{
+  margin: 0;
+}
+.list{
+  li{
+    border-bottom: 1px solid #EBEBEB;
+    padding: 11*@basePx @baseFont;
+    font-size:  @baseFont;
+    line-height: 20*@basePx;
+    label {
+      font-weight: 400;
+    }
+  }
+}
+input[type=checkbox], input[type=radio] {
+  margin: 0;
+}
+input{
+  color:#000;
+}
+textarea{
+  color:#000
+}
+.content{
+  width: 80%;
+  padding-left:3*@baseFont;
+}
+.one-line{
+  span{
+    width: 20%;
+  }
+  textarea{
+    border: none;
+    width: 70%;
+    padding: 0;
+  }
+}
+.submit{
+  padding: 2em 0;
+  text-align: center;
+  button{
+    padding: .5em 1em;
+    background-color: #0f8fcb ;
+    font-size: @titleFont;
+    color: #fff;
+    border-radius: 5px;
+  }
+}
+//.am-input-group .am-form-field {
+//  height: 0.76rem;
+//}
+.am-input-group-label{
+  height: 7.6*@basePx;
+  font-size: 1.6/8rem;
+  line-height: 7.6*@basePx;
+}
+.am-form-field{
+  padding: 0;
+  font-size: @baseFont;
+}
+.datetimepicker table td {
+  width: 1.8*@basePx;
+  height: 6.8*@basePx;
+  cursor: pointer;
+  font-size: 0.28rem;
+  color: #555;
+  background: #fff;
+
+}
+.am-form-field{
+  padding-left: 1em;
+}
+#chestpainCaseTime button{
+  width: 40*@basePx;
+  height: 32*@basePx;
+  margin: 10*@basePx 20*@basePx ;
+  background: #fff url(../images/clock.png)  no-repeat  center center ;
+  background-size: contain;
+
+}
+.necessary{
+  color: red;
+}

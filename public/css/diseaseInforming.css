@@ -1,0 +1,117 @@
+.am-header-default {
+  background: #0f8fcb;
+}
+.am-header .am-header-title {
+  font-size: 0.275rem;
+  margin: 0;
+}
+.am-header .am-header-title img {
+  width: 0.13125rem;
+  height: 0.21875rem;
+}
+.line {
+  height: 0.125rem;
+  background-color: #EBEBEB;
+}
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+[class*=am-u-] {
+  padding: 0  0.2rem;
+}
+label {
+  font-weight: 400;
+}
+.am-u-sm-6 label {
+  width: 30%;
+}
+.am-u-sm-6 > input {
+  border: 1px solid #e6e6e6;
+  width: 70%;
+  line-height: 2em;
+  padding-left: 1em;
+}
+.truthTelling .am-u-sm-12 label {
+  margin-left: 1em;
+}
+.am-u-sm-12 > input {
+  border: 1px solid #e6e6e6;
+  line-height: 2em;
+  padding-left: 1em;
+  margin-left: 1em;
+}
+section {
+  padding-top: 0.1875rem;
+}
+section h3 {
+  background: #0f8fcb;
+  color: #fff;
+  font-size: 0.275rem;
+  padding-left: 0.175rem;
+  line-height: 0.3125rem;
+  height: 0.3125rem;
+}
+label {
+  margin: 0;
+}
+.list li {
+  border-bottom: 1px solid #EBEBEB;
+  padding: 0.1375rem 0.175rem;
+  font-size: 0.175rem;
+  line-height: 0.25rem;
+}
+.list li label {
+  font-weight: 400;
+}
+input[type=checkbox],
+input[type=radio] {
+  margin: 0;
+}
+input {
+  color: #000;
+}
+textarea {
+  color: #000;
+}
+.content {
+  width: 80%;
+  padding-left: 0.525rem;
+}
+.one-line span {
+  width: 20%;
+}
+.one-line textarea {
+  border: none;
+  width: 70%;
+  padding: 0;
+}
+.submit {
+  padding: 2em 0;
+  text-align: center;
+}
+.submit button {
+  padding: .5em 1em;
+  background-color: #0f8fcb ;
+  font-size: 0.275rem;
+  color: #fff;
+  border-radius: 5px;
+}
+.am-input-group-label {
+  height: 0.095rem;
+  font-size: 0.2rem;
+  line-height: 0.095rem;
+}
+.am-form-field {
+  padding: 0;
+  font-size: 0.175rem;
+}
+.datetimepicker table td {
+  width: 0.0225rem;
+  height: 0.085rem;
+  cursor: pointer;
+  font-size: 0.28rem;
+  color: #555;
+  background: #fff;
+}

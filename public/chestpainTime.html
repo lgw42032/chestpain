@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="js/libs/AmazeUI-2.7.2/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="js/libs/AmazeUI-2.7.2/assets/css/app.css"/>
+    <link rel="stylesheet" href="js/libs/datetimepicker-master/css/amazeui.datetimepicker.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel='stylesheet' href='css/chestpainCase.css'/>
+    <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="css/load5.css"/>
+    <title>120急救信息管理</title>
+    <script type="text/javascript">
+        function finish() {
+            window.android.finishActivity();
+        }
+    </script>
+</head>
+<body style="height: 100%" id="baseBody">
+<div class="load-container load5">
+    <div class="loader">Loading...</div>
+</div>
+<div class="body-content">
+    <header data-am-widget="header" class="am-header am-header-default title am-header-fixed">
+        <h1 class="am-header-title">
+            <a  class="fl" onclick="javascript:finish()">
+                <img src="images/leftArr.png" alt=""/>
+            </a>
+            <a href="javascript:void(0)" class="patient-name">
+                急性胸痛患者院前时间管理表
+            </a>
+        </h1>
+    </header>
+    <section>
+        <form id="chestpainCaseTime"  >
+            <fieldset>
+                <ul class="am-g list time">
+                    <li class="am-u-sm-12">
+                        <label class="fl">首次医疗接触时间时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime fl" style="width: 50%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="firstMedicalContactTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                        <button type="button"  class="btn fl"></button>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label>首次医疗接触时间地点 ：</label><input type="text" name="firstMedicalContactSite" />
+                    </li>
+                    <li class="am-u-sm-12 check">
+                        <label>院前检查项目 ：</label>
+                        <!--<input type="text" name="preHosCheck" />-->
+                        <label><input type="checkbox" value="0" name="preHosCheck"/>心电图</label>
+                        <label><input type="checkbox" value="1" name="preHosCheck"/>血常规</label>
+                        <label><input type="checkbox" value="2" name="preHosCheck"/>凝血四项</label>
+                        <label><input type="checkbox" value="3" name="preHosCheck"/>急诊生化</label>
+                        <label style="width: 18%"><input type="checkbox" value="4" name="preHosCheck"/>急诊电解质</label>
+                    </li>
+                    <li class="am-u-sm-12 check">
+                        <label></label>
+                        <!--<input type="text" name="preHosCheck" />-->
+                        <label><input type="checkbox" value="5" name="preHosCheck"/>心梗三项</label>
+                        <label><input type="checkbox" value="6" name="preHosCheck"/>心脏生化</label>
+                        <label><input type="checkbox" value="7" name="preHosCheck"/>GT</label>
+                        <label><input type="checkbox" value="8" name="preHosCheck"/>B超</label>
+                        <label><input type="checkbox" value="9" name="preHosCheck"/>X线</label>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">院前心电图时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime fl " style="width: 50%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosECGCheckTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                        <button type="button" class="fl btn"></button>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">心电图诊断时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime fl" style="width: 50%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosECGDiagnosisTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                        <button type="button"  class="fl btn"></button>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">院前传输12导联心电图时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime fl" style="width: 50%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosECGTransferTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                        <button type="button"  class="fl btn"></button>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">院前诊断时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime fl" style="width: 50%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosDiagnosis"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                        <button type="button"  class="fl btn"></button>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">院前抽血时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime fl" style="width: 50%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosBloodTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                        <button type="button"  class="fl btn"></button>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">院前启动导管室时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime fl" style="width: 50%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosStartCatheterTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                        <button type="button"  class="fl btn"></button>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">院前溶栓开始时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime fl" style="width: 50%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosStartTbTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                        <button type="button"  class="fl btn"></button>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">院前溶栓结束时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime fl" style="width: 50%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="preHosEndTbTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                        <button type="button"   class="fl btn"></button>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">患者进入急诊科时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime fl" style="width: 50%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="enterEmergencyTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                        <button type="button"  class="fl btn"></button>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">患者进入导管室时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime fl" style="width: 50%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="enterCatheterTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                        <button type="button"  class="fl btn"></button>
+                    </li>
+                    <li class="am-u-sm-12">
+                        <label class="fl">患者送入CUU时间 ：</label>
+                        <div class="am-input-group date form_datetime-1 startTime fl" style="width: 50%" data-date-format="dd-mm-yyyy" >
+                            <input size="16" type="text"  class="am-form-field"  name="enterCCUTime"  readonly>
+                            <span class="add-on  am-input-group-label"><i class="icon-th am-icon-calendar"></i></span>
+                        </div>
+                        <button type="button"  class="fl btn"></button>
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+    </section>
+    <div class="submit">
+        <button>保存</button>
+    </div>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="gobackFalse">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd alert-title"></div>
+        <div class="am-modal-bd alert-content"></div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="windowClose">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd alert-title"></div>
+        <div class="am-modal-bd alert-content"></div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+
+<script type="text/x-handlebars-template" id="optionTemName">
+    {{#if data }}
+    {{#each data}}
+    <option value="{{this.Name_c}}" text="{{this.Name_c}}">{{this.Name_c}}</option>
+    {{/each}}
+    {{/if}}
+</script>
+<script type="text/x-handlebars-template" id="optionTemCode">
+    {{#if data }}
+    {{#each data}}
+    <option value="{{this.Code_i}}" text="{{this.Name_c}}">{{this.Name_c}}</option>
+    {{/each}}
+    {{/if}}
+</script>
+<script type="text/x-handlebars-template" id="station">
+    {{#if data }}
+    {{#each data}}
+    <option value="{{this.stationName}}" text="{{this.stationName}}" >{{this.stationName}}</option>
+    {{/each}}
+    {{/if}}
+
+</script>
+<script type="text/x-handlebars-template" id="doctor">
+    {{#if data }}
+    {{#each data}}
+    <option value="{{this.personName}}">{{this.personName}}</option>
+    {{/each}}
+    {{/if}}
+
+</script>
+<script src="js/libs/seajs-master/dist/sea.js"></script>
+<script>
+    seajs.config({
+        //all alias path base on this//所有别名基于本路径
+
+        //define each self path//定义paths，本例未启用
+        //,paths:{
+        //  "jQueryPath":"jquery"
+        //}
+        base:"./js/",
+        //define each alias name here
+//        paths:{'libs':'/js/libs'},
+        alias:{ //auto add suffix .js
+            "jquery":"libs/jquery-3.2.1.min",
+            "amazeui":"libs/AmazeUI-2.7.2/assets/js/amazeui.js",
+            "pxToRem":"libs/pxToRem",
+            "handlebars":"libs/AmazeUI-2.7.2/assets/js/handlebars.min.js",
+            "widgets":"libs/AmazeUI-2.7.2/assets/js/amazeui.widgets.helper.js",
+            "datatimepicker":"libs/datetimepicker-master/js/amazeui.datetimepicker.js",
+            "zh-cn":"libs/datetimepicker-master/js/locales/amazeui.datetimepicker.zh-CN.js"
+        }
+        ,preload:'jQuery1.11'
+        ,vars:{
+            'locale':'zh-cn' //本例未启用,在模块中可用格式{key},即{locale}表示变量
+        }
+    });
+    seajs.use('./js/app.js',function(app){
+        app.script_load('chestpainTime');
+    });
+</script>
+</body>
+</html>
