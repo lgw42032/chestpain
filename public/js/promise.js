@@ -23,7 +23,7 @@ define(function(require, exports, module) {
         getCaseByTaskCode:function(url,data){
             return new Promise(function(resolve,reject){
                     $.ajax({
-                        url:'http://' + url +'/api/case/getCaseByTaskCode',
+                        url:'/getCaseByTaskCode',
                         type:'get',
                         data: data,
                         success:function(data){
@@ -40,7 +40,7 @@ define(function(require, exports, module) {
             console.log(data);
             return new Promise(function(resolve,reject){
                     $.ajax({
-                        url:'http://' + url +'/api/case/patientCaseInfo',
+                        url:'/patientCaseInfo',
                         type:'post',
                         data: data,
                         success:function(data){
