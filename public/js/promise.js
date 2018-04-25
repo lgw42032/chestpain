@@ -505,7 +505,7 @@ define(function(require, exports, module) {
         getDJust:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDJust',
+                    url:'/getDJust',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -553,7 +553,7 @@ define(function(require, exports, module) {
         addPhysicalExamination:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/addPhysicalExamination',
+                    url:'/addPhysicalExamination',
                     type:'post',
                     data: data,
                     success:function(data){
@@ -617,7 +617,7 @@ define(function(require, exports, module) {
         addMeasuresInfo:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/addMeasuresInfo',
+                    url:'/addMeasuresInfo',
                     type:'post',
                     data: data,
                     success:function(data){
@@ -782,7 +782,7 @@ define(function(require, exports, module) {
 
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/saveAlterRecord',
+                    url:'/saveAlterRecord',
                     type:'post',
                     data: data,
                     success:function(data){
