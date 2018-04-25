@@ -57,7 +57,7 @@ define(function(require, exports, module) {
             console.log(data);
             return new Promise(function(resolve,reject){
                     $.ajax({
-                        url:'http://' + url +'/api/case/getChestPainInfo',
+                        url:'/getChestPainInfo',
                         type:'get',
                         data: data,
                         success:function(data){
@@ -73,7 +73,7 @@ define(function(require, exports, module) {
         getIllTeller:function(url,data){
             return new Promise(function(resolve,reject){
                     $.ajax({
-                        url:'http://' + url +'/api/case/getIllTeller',
+                        url:'/getIllTeller',
                         type:'get',
                         data: data,
                         success:function(data){
@@ -89,7 +89,7 @@ define(function(require, exports, module) {
         getHandOver:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://' + url +'/api/case/getHandOver',
+                    url: '/getHandOver',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -105,7 +105,7 @@ define(function(require, exports, module) {
         getTaskByID:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getTaskByID',
+                    url:'/getTaskByID',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -121,7 +121,7 @@ define(function(require, exports, module) {
         getTaskDetailByID:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getTaskDetailByID',
+                    url:'/getTaskDetailByID',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -137,7 +137,7 @@ define(function(require, exports, module) {
         getDAge:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDAge',
+                    url:'/getDAge',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -153,7 +153,7 @@ define(function(require, exports, module) {
         getDFolk:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDFolk',
+                    url:'/getDFolk',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -169,7 +169,7 @@ define(function(require, exports, module) {
         getDInDepartment:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDInDepartment',
+                    url:'/getDInDepartment',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -185,7 +185,7 @@ define(function(require, exports, module) {
         getDDepartment:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDDepartment',
+                    url:'/getDDepartment',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -201,7 +201,7 @@ define(function(require, exports, module) {
         getDLinkman:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDLinkman',
+                    url:'/getDLinkman',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -217,7 +217,7 @@ define(function(require, exports, module) {
         getDOutComes:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDOutComes',
+                    url:'/getDOutComes',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -233,7 +233,7 @@ define(function(require, exports, module) {
         getDDiseaseReason:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDDiseaseReason',
+                    url:'/getDDiseaseReason',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -249,7 +249,7 @@ define(function(require, exports, module) {
         getDILLState:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDILLState',
+                    url:'/getDILLState',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -265,7 +265,7 @@ define(function(require, exports, module) {
         getDCureResult:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDCureResult',
+                    url:'/getDCureResult',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -281,7 +281,7 @@ define(function(require, exports, module) {
         getDDiseaseClass:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDDiseaseClass',
+                    url:'/getDDiseaseClass',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -297,7 +297,7 @@ define(function(require, exports, module) {
         getStations:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getStations',
+                    url:'/getStations',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -313,7 +313,7 @@ define(function(require, exports, module) {
         getPersonsByPersonType:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getPersonsByPersonType',
+                    url:'/getPersonsByPersonType',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -329,7 +329,7 @@ define(function(require, exports, module) {
         getDPmhq:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDPmhq',
+                    url:'/getDPmhq',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -345,7 +345,7 @@ define(function(require, exports, module) {
         getDAllergyq:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDAllergyq',
+                    url:'/getDAllergyq',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -361,7 +361,7 @@ define(function(require, exports, module) {
         getDPhysicalExaminationq:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDPhysicalExaminationq',
+                    url:'/getDPhysicalExaminationq',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -377,7 +377,7 @@ define(function(require, exports, module) {
         getDPosition:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDPosition',
+                    url:'/getDPosition',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -393,7 +393,7 @@ define(function(require, exports, module) {
         getDMind:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDMind',
+                    url:'/getDMind',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -409,7 +409,7 @@ define(function(require, exports, module) {
         getDSkin:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDSkin',
+                    url:'/getDSkin',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -425,7 +425,7 @@ define(function(require, exports, module) {
         getDCyanosis:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDCyanosis',
+                    url:'/getDCyanosis',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -441,7 +441,7 @@ define(function(require, exports, module) {
         getDLightReflex:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDLightReflex',
+                    url:'/getDLightReflex',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -457,7 +457,7 @@ define(function(require, exports, module) {
         getDAccessoryExaminationq:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDAccessoryExaminationq',
+                    url:'/getDAccessoryExaminationq',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -473,7 +473,7 @@ define(function(require, exports, module) {
         getDCureMeasure:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDCureMeasure',
+                    url:'/getDCureMeasure',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -489,7 +489,7 @@ define(function(require, exports, module) {
         getDMedicine:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/getDMedicine',
+                    url:'/getDMedicine',
                     type:'get',
                     data: data,
                     success:function(data){
@@ -521,7 +521,7 @@ define(function(require, exports, module) {
         addPatientCaseBaseInfo:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/addPatientCaseBaseInfo',
+                    url:'/addPatientCaseBaseInfo',
                     type:'post',
                     data: data,
                     success:function(data){
@@ -537,7 +537,7 @@ define(function(require, exports, module) {
         editPatientCaseBaseInfo:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/editPatientCaseBaseInfo',
+                    url:'/editPatientCaseBaseInfo',
                     type:'post',
                     data: data,
                     success:function(data){
@@ -569,7 +569,7 @@ define(function(require, exports, module) {
         editPhysicalExamination:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/editPhysicalExamination',
+                    url:'/editPhysicalExamination',
                     type:'post',
                     data: data,
                     success:function(data){
@@ -585,7 +585,7 @@ define(function(require, exports, module) {
         addAccessoryExamination:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/addAccessoryExamination',
+                    url:'/addAccessoryExamination',
                     type:'post',
                     data: data,
                     success:function(data){
@@ -601,7 +601,7 @@ define(function(require, exports, module) {
         editAccessoryExamination:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/editAccessoryExamination',
+                    url:'/editAccessoryExamination',
                     type:'post',
                     data: data,
                     success:function(data){
@@ -633,7 +633,7 @@ define(function(require, exports, module) {
         editMeasuresInfo:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/editMeasuresInfo',
+                    url:'/editMeasuresInfo',
                     type:'post',
                     data: data,
                     success:function(data){
@@ -650,7 +650,7 @@ define(function(require, exports, module) {
         addChestpainTime:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/addChestPainInfo',
+                    url:'/addChestPainInfo',
                     type:'post',
                     data: data,
                     success:function(data){
@@ -666,7 +666,7 @@ define(function(require, exports, module) {
         addChestpainCase:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/addAllChestPainInfo',
+                    url:'/addAllChestPainInfo',
                     type:'post',
                     data: data,
                     success:function(data){
@@ -684,7 +684,7 @@ define(function(require, exports, module) {
         editChestpainCase:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/editChestPainInfo',
+                    url:'/editChestPainInfo',
                     type:'post',
                     data: data,
                     success:function(data){
@@ -701,7 +701,7 @@ define(function(require, exports, module) {
         addIllteller:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/addIllteller',
+                    url:'/addIllteller',
                     type:'post',
                     data: data,
                     success:function(data){
@@ -717,7 +717,7 @@ define(function(require, exports, module) {
         editIllteller:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/editIllteller',
+                    url:'/editIllteller',
                     type:'post',
                     data: data,
                     success:function(data){
@@ -733,7 +733,7 @@ define(function(require, exports, module) {
         addHandoverRecord:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/addHandoverRecord',
+                    url:'/addHandoverRecord',
                     type:'post',
                     data: data,
                     success:function(data){
@@ -749,7 +749,7 @@ define(function(require, exports, module) {
         editHandoverRecord:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/editHandoverRecord',
+                    url:'/editHandoverRecord',
                     type:'post',
                     data: data,
                     success:function(data){
@@ -765,7 +765,7 @@ define(function(require, exports, module) {
         deletePatientCase:function(url,data){
             return new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'http://'+ url +'/api/case/deletePatientCase',
+                    url:'/deletePatientCase',
                     type:'post',
                     data: data,
                     success:function(data){
