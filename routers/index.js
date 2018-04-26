@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var Json = bodyParser.json();
 var config = require('../config/config.json');
+var func = require('../utils/functor');
 router.get('/getConfig', function (req, res, next) {
    res.json(config);
 });
@@ -25,10 +26,8 @@ router.get('/getCaseByTaskCode', function (req, res, next) {
          return  tools.echoError(res,"getCaseByTaskCode error")
       }
       else{
-         var results = requestRes.data;
-
+         let results = requestRes;
          res.json(results);
-         tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getCaseByTaskCode: "+err)
@@ -46,7 +45,8 @@ router.post('/patientCaseInfo', function (req, res, next) {
          return  tools.echoError(res,"patientCaseInfo error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"patientCaseInfo:" +err)
@@ -66,10 +66,8 @@ router.get('/getChestPainInfo', function (req, res, next) {
          return  tools.echoError(res,"getChestPainInfo error")
       }
       else{
-         var results = requestRes.data;
-
+         let results = requestRes;
          res.json(results);
-         tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getChestPainInfo: "+err)
@@ -89,10 +87,10 @@ router.get('/getIllTeller', function (req, res, next) {
          return  tools.echoError(res,"getIllTeller error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getIllTeller: "+err)
@@ -112,10 +110,10 @@ router.get('/getHandOver', function (req, res, next) {
          return  tools.echoError(res,"getHandOver error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getHandOver: "+err)
@@ -135,10 +133,10 @@ router.get('/getTaskByID', function (req, res, next) {
          return  tools.echoError(res,"getTaskByID error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getTaskByID: "+err)
@@ -158,10 +156,10 @@ router.get('/getTaskDetailByID', function (req, res, next) {
          return  tools.echoError(res,"getTaskDetailByID error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getTaskDetailByID: "+err)
@@ -181,10 +179,10 @@ router.get('/getDAge', function (req, res, next) {
          return  tools.echoError(res,"getDAge error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDAge: "+err)
@@ -204,10 +202,10 @@ router.get('/getDFolk', function (req, res, next) {
          return  tools.echoError(res,"getDFolk error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDFolk: "+err)
@@ -227,10 +225,10 @@ router.get('/getDInDepartment', function (req, res, next) {
          return  tools.echoError(res,"getDInDepartment error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDInDepartment: "+err)
@@ -250,10 +248,10 @@ router.get('/getDDepartment', function (req, res, next) {
          return  tools.echoError(res,"getDDepartment error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDDepartment: "+err)
@@ -273,10 +271,10 @@ router.get('/getDLinkman', function (req, res, next) {
          return  tools.echoError(res,"getDLinkman error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDLinkman: "+err)
@@ -296,10 +294,10 @@ router.get('/getDOutComes', function (req, res, next) {
          return  tools.echoError(res,"getDOutComes error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDOutComes: "+err)
@@ -319,10 +317,10 @@ router.get('/getDDiseaseReason', function (req, res, next) {
          return  tools.echoError(res,"getDDiseaseReason error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDDiseaseReason: "+err)
@@ -342,10 +340,10 @@ router.get('/getDILLState', function (req, res, next) {
          return  tools.echoError(res,"getDILLState error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDILLState: "+err)
@@ -365,10 +363,10 @@ router.get('/getDCureResult', function (req, res, next) {
          return  tools.echoError(res,"getDCureResult error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDCureResult: "+err)
@@ -388,10 +386,10 @@ router.get('/getDDiseaseClass', function (req, res, next) {
          return  tools.echoError(res,"getDDiseaseClass error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDDiseaseClass: "+err)
@@ -411,10 +409,10 @@ router.get('/getStations', function (req, res, next) {
          return  tools.echoError(res,"getStations error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getStations: "+err)
@@ -434,10 +432,10 @@ router.get('/getPersonsByPersonType', function (req, res, next) {
          return  tools.echoError(res,"getPersonsByPersonType error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getPersonsByPersonType: "+err)
@@ -457,10 +455,10 @@ router.get('/getDPmhq', function (req, res, next) {
          return  tools.echoError(res,"getDPmhq error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDPmhq: "+err)
@@ -480,10 +478,10 @@ router.get('/getDAllergyq', function (req, res, next) {
          return  tools.echoError(res,"getDAllergyq error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDAllergyq: "+err)
@@ -503,10 +501,10 @@ router.get('/getDPhysicalExaminationq', function (req, res, next) {
          return  tools.echoError(res,"getDPhysicalExaminationq error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDPhysicalExaminationq: "+err)
@@ -526,10 +524,10 @@ router.get('/getDPosition', function (req, res, next) {
          return  tools.echoError(res,"getDPosition error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDPosition: "+err)
@@ -549,10 +547,10 @@ router.get('/getDMind', function (req, res, next) {
          return  tools.echoError(res,"getDMind error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDMind: "+err)
@@ -572,10 +570,10 @@ router.get('/getDSkin', function (req, res, next) {
          return  tools.echoError(res,"getDSkin error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDSkin: "+err)
@@ -595,10 +593,10 @@ router.get('/getDCyanosis', function (req, res, next) {
          return  tools.echoError(res,"getDCyanosis error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDCyanosis: "+err)
@@ -618,10 +616,10 @@ router.get('/getDLightReflex', function (req, res, next) {
          return  tools.echoError(res,"getDLightReflex error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDLightReflex: "+err)
@@ -641,10 +639,10 @@ router.get('/getDAccessoryExaminationq', function (req, res, next) {
          return  tools.echoError(res,"getDAccessoryExaminationq error")
       }
       else{
-         var results = requestRes.data;
+         let results= requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDAccessoryExaminationq: "+err)
@@ -664,10 +662,10 @@ router.get('/getDCureMeasure', function (req, res, next) {
          return  tools.echoError(res,"getDCureMeasure error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDCureMeasure: "+err)
@@ -687,10 +685,10 @@ router.get('/getDMedicine', function (req, res, next) {
          return  tools.echoError(res,"getDMedicine error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDMedicine: "+err)
@@ -710,10 +708,10 @@ router.get('/getDJust', function (req, res, next) {
          return  tools.echoError(res,"getDJust error")
       }
       else{
-         var results = requestRes.data;
+         let results = requestRes;
 
          res.json(results);
-         tools.echoSuccess(res,"success");
+         //tools.echoSuccess(res,"success");
       }
    }).catch(function(err){
       tools.echoError(res,"getDJust: "+err)
@@ -731,7 +729,8 @@ router.post('/addPatientCaseBaseInfo', function (req, res, next) {
          return  tools.echoError(res,"addPatientCaseBaseInfo error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"addPatientCaseBaseInfo:" +err)
@@ -748,7 +747,8 @@ router.post('/editPatientCaseBaseInfo', function (req, res, next) {
          return  tools.echoError(res,"editPatientCaseBaseInfo error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"editPatientCaseBaseInfo:" +err)
@@ -765,7 +765,8 @@ router.post('/addPhysicalExamination', function (req, res, next) {
          return  tools.echoError(res,"addPhysicalExamination error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"addPhysicalExamination:" +err)
@@ -782,7 +783,8 @@ router.post('/editPhysicalExamination', function (req, res, next) {
          return  tools.echoError(res,"editPhysicalExamination error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"editPhysicalExamination:" +err)
@@ -799,7 +801,8 @@ router.post('/addAccessoryExamination', function (req, res, next) {
          return  tools.echoError(res,"addAccessoryExamination error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"addAccessoryExamination:" +err)
@@ -816,7 +819,8 @@ router.post('/editAccessoryExamination', function (req, res, next) {
          return  tools.echoError(res,"editAccessoryExamination error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"editAccessoryExamination:" +err)
@@ -833,7 +837,8 @@ router.post('/addMeasuresInfo', function (req, res, next) {
          return  tools.echoError(res,"addMeasuresInfo error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"addMeasuresInfo:" +err)
@@ -850,7 +855,8 @@ router.post('/editMeasuresInfo', function (req, res, next) {
          return  tools.echoError(res,"editMeasuresInfo error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"editMeasuresInfo:" +err)
@@ -867,7 +873,8 @@ router.post('/addChestPainInfo', function (req, res, next) {
          return  tools.echoError(res,"addChestPainInfo error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"addChestPainInfo:" +err)
@@ -884,7 +891,8 @@ router.post('/addAllChestPainInfo', function (req, res, next) {
          return  tools.echoError(res,"addAllChestPainInfo error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"addAllChestPainInfo:" +err)
@@ -901,7 +909,8 @@ router.post('/editChestPainInfo', function (req, res, next) {
          return  tools.echoError(res,"editChestPainInfo error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"editChestPainInfo:" +err)
@@ -918,7 +927,8 @@ router.post('/addIllteller', function (req, res, next) {
          return  tools.echoError(res,"addIllteller error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"addIllteller:" +err)
@@ -935,7 +945,8 @@ router.post('/editIllteller', function (req, res, next) {
          return  tools.echoError(res,"editIllteller error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"editIllteller:" +err)
@@ -952,7 +963,8 @@ router.post('/addHandoverRecord', function (req, res, next) {
          return  tools.echoError(res,"addHandoverRecord error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"addHandoverRecord:" +err)
@@ -969,7 +981,8 @@ router.post('/editHandoverRecord', function (req, res, next) {
          return  tools.echoError(res,"editHandoverRecord error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"editHandoverRecord:" +err)
@@ -986,7 +999,8 @@ router.post('/deletePatientCase', function (req, res, next) {
          return  tools.echoError(res,"deletePatientCase error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"deletePatientCase:" +err)
@@ -1003,7 +1017,8 @@ router.post('/saveAlterRecord', function (req, res, next) {
          return  tools.echoError(res,"saveAlterRecord error")
       }
       else{
-         return func.echoSuccess(res, "success", 1);
+         let results = requestRes;
+         res.json(results);
       }
    }).catch(function(err){
       tools.echoError(res,"saveAlterRecord:" +err)
