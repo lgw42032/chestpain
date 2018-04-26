@@ -48,7 +48,7 @@ define(function(require, exports, module) {
             Task_code_c:Task_code_c
         });
         console.log(cases);
-        var caseCount = cases.data.length;
+        var caseCount = cases.length;
         var TableList=$('#case-table'),
             tplTableList= TableList.html(),
             templateTableList= Handlebars.compile(tplTableList),
