@@ -9,7 +9,6 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var Json = bodyParser.json();
 var config = require('../config/config.json');
-var func = require('../utils/functor');
 router.get('/getConfig', function (req, res, next) {
    res.json(config);
 });
